@@ -1,21 +1,15 @@
 import java.util.Scanner;
-
 public class SortZeroesOnesTwos {
     static void sort012(int[] arr) {
         int lo = 0, mid = 0, hi = arr.length - 1;
         while (mid <= hi) {
             if (arr[mid] == 0) {
-                int temp = arr[lo];
-                arr[lo] = arr[mid];
-                arr[mid] = temp;
-                lo++;
-                mid++;
+                int t = arr[lo]; arr[lo] = arr[mid]; arr[mid] = t;
+                lo++; mid++;
             } else if (arr[mid] == 1) {
                 mid++;
             } else {
-                int temp = arr[mid];
-                arr[mid] = arr[hi];
-                arr[hi] = temp;
+                int t = arr[mid]; arr[mid] = arr[hi]; arr[hi] = t;
                 hi--;
             }
         }
@@ -24,13 +18,11 @@ public class SortZeroesOnesTwos {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
-        }
         sort012(arr);
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             System.out.print(arr[i] + " ");
-        }
         System.out.println();
         sc.close();
     }

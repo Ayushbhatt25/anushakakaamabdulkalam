@@ -1,48 +1,35 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 public class MajorityElementNBy3 {
     static List<Integer> majorityElement(int[] nums) {
-        int cand1 = 0, cand2 = 0, count1 = 0, count2 = 0;
+        int c1 = 0, c2 = 0, cnt1 = 0, cnt2 = 0;
         for (int num : nums) {
-            if (num == cand1) {
-                count1++;
-            } else if (num == cand2) {
-                count2++;
-            } else if (count1 == 0) {
-                cand1 = num;
-                count1 = 1;
-            } else if (count2 == 0) {
-                cand2 = num;
-                count2 = 1;
-            } else {
-                count1--;
-                count2--;
-            }
+            if (num == c1) cnt1++;
+            else if (num == c2) cnt2++;
+            else if (cnt1 == 0) { c1 = num; cnt1 = 1; }
+            else if (cnt2 == 0) { c2 = num; cnt2 = 1; }
+            else { cnt1--; cnt2--; }
         }
-        count1 = 0;
-        count2 = 0;
+        cnt1 = 0; cnt2 = 0;
         for (int num : nums) {
-            if (num == cand1) count1++;
-            else if (num == cand2) count2++;
+            if (num == c1) cnt1++;
+            else if (num == c2) cnt2++;
         }
-        List<Integer> result = new ArrayList<>();
-        if (count1 > nums.length / 3) result.add(cand1);
-        if (count2 > nums.length / 3) result.add(cand2);
-        return result;
+        List<Integer> res = new ArrayList<>();
+        if (cnt1 > nums.length / 3) res.add(c1);
+        if (cnt2 > nums.length / 3) res.add(c2);
+        return res;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
-        }
-        List<Integer> res = majorityElement(arr);
-        for (int x : res) {
+        List<Integer> ans = majorityElement(arr);
+        for (int x : ans)
             System.out.print(x + " ");
-        }
         System.out.println();
         sc.close();
     }
