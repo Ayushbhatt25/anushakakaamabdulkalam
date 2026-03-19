@@ -1,22 +1,19 @@
 import java.util.Scanner;
-
 public class FindMissingNumber {
-    public static int findMissing(int[] arr, int n) {
-        int totalSum = n * (n + 1) / 2;
-        int arrSum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            arrSum += arr[i];
-        }
-        return totalSum - arrSum;
+    static int solve(int[] arr, int n) {
+        int total = n * (n + 1) / 2;
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++)
+            sum += arr[i];
+        return total - sum;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] arr = new int[n - 1];
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < n - 1; i++)
             arr[i] = sc.nextInt();
-        }
-        System.out.println(findMissing(arr, n));
+        System.out.println(solve(arr, n));
         sc.close();
     }
 }
