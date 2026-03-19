@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 public class FindAllDuplicates {
-    static List<Integer> findDuplicates(int[] nums) {
+    static List<Integer> solve(int[] nums) {
         List<Integer> res = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
             int idx = Math.abs(nums[i]) - 1;
@@ -19,7 +19,7 @@ public class FindAllDuplicates {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
-        List<Integer> dups = findDuplicates(arr);
+        List<Integer> dups = solve(arr);
         for (int x : dups)
             System.out.print(x + " ");
         System.out.println();

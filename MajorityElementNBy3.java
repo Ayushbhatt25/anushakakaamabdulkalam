@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 public class MajorityElementNBy3 {
-    static List<Integer> majorityElement(int[] nums) {
+    static List<Integer> solve(int[] nums) {
         int c1 = 0, c2 = 0, cnt1 = 0, cnt2 = 0;
         for (int num : nums) {
             if (num == c1) cnt1++;
@@ -27,7 +27,7 @@ public class MajorityElementNBy3 {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
-        List<Integer> ans = majorityElement(arr);
+        List<Integer> ans = solve(arr);
         for (int x : ans)
             System.out.print(x + " ");
         System.out.println();

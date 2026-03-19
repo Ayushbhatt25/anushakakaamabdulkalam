@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class BestTimeToBuyAndSellStock {
-    static int maxProfit(int[] prices) {
+    static int solve(int[] prices) {
         int min = prices[0], profit = 0;
         for (int i = 1; i < prices.length; i++) {
             if (prices[i] < min)
@@ -16,7 +16,7 @@ public class BestTimeToBuyAndSellStock {
         int[] prices = new int[n];
         for (int i = 0; i < n; i++)
             prices[i] = sc.nextInt();
-        System.out.println(maxProfit(prices));
+        System.out.println(solve(prices));
         sc.close();
     }
 }

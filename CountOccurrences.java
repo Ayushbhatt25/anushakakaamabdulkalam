@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class CountOccurrences {
-    static int firstOcc(int[] arr, int target) {
+    static int first(int[] arr, int target) {
         int lo = 0, hi = arr.length - 1, ans = -1;
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
@@ -10,7 +10,7 @@ public class CountOccurrences {
         }
         return ans;
     }
-    static int lastOcc(int[] arr, int target) {
+    static int last(int[] arr, int target) {
         int lo = 0, hi = arr.length - 1, ans = -1;
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
@@ -20,10 +20,10 @@ public class CountOccurrences {
         }
         return ans;
     }
-    static int countOcc(int[] arr, int target) {
-        int first = firstOcc(arr, target);
-        if (first == -1) return 0;
-        return lastOcc(arr, target) - first + 1;
+    static int solve(int[] arr, int target) {
+        int f = first(arr, target);
+        if (f == -1) return 0;
+        return last(arr, target) - f + 1;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -32,7 +32,7 @@ public class CountOccurrences {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
-        System.out.println(countOcc(arr, target));
+        System.out.println(solve(arr, target));
         sc.close();
     }
 }

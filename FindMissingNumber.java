@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class FindMissingNumber {
-    static int findMissing(int[] arr, int n) {
+    static int solve(int[] arr, int n) {
         int total = n * (n + 1) / 2;
         int sum = 0;
         for (int i = 0; i < arr.length; i++)
@@ -13,7 +13,7 @@ public class FindMissingNumber {
         int[] arr = new int[n - 1];
         for (int i = 0; i < n - 1; i++)
             arr[i] = sc.nextInt();
-        System.out.println(findMissing(arr, n));
+        System.out.println(solve(arr, n));
         sc.close();
     }
 }

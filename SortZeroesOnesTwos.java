@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class SortZeroesOnesTwos {
-    static void sort012(int[] arr) {
+    static void solve(int[] arr) {
         int lo = 0, mid = 0, hi = arr.length - 1;
         while (mid <= hi) {
             if (arr[mid] == 0) {
@@ -20,7 +20,7 @@ public class SortZeroesOnesTwos {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
-        sort012(arr);
+        solve(arr);
         for (int i = 0; i < n; i++)
             System.out.print(arr[i] + " ");
         System.out.println();

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class MaximumSubarraySum {
-    static int kadane(int[] arr) {
+    static int solve(int[] arr) {
         int maxSum = arr[0], cur = arr[0];
         for (int i = 1; i < arr.length; i++) {
             cur = Math.max(arr[i], cur + arr[i]);
@@ -14,7 +14,7 @@ public class MaximumSubarraySum {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
-        System.out.println(kadane(arr));
+        System.out.println(solve(arr));
         sc.close();
     }
 }

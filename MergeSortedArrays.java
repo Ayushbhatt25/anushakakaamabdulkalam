@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class MergeSortedArrays {
-    static void merge(int[] a, int[] b) {
+    static void solve(int[] a, int[] b) {
         int n = a.length, m = b.length;
         int gap = (n + m + 1) / 2;
         while (gap > 0) {
@@ -24,7 +24,7 @@ public class MergeSortedArrays {
         int[] a = new int[n], b = new int[m];
         for (int i = 0; i < n; i++) a[i] = sc.nextInt();
         for (int i = 0; i < m; i++) b[i] = sc.nextInt();
-        merge(a, b);
+        solve(a, b);
         for (int i = 0; i < n; i++) System.out.print(a[i] + " ");
         for (int i = 0; i < m; i++) System.out.print(b[i] + " ");
         System.out.println();

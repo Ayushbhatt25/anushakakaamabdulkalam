@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class TrappingRainWater {
-    static int trap(int[] h) {
+    static int solve(int[] h) {
         int l = 0, r = h.length - 1;
         int lmax = 0, rmax = 0, water = 0;
         while (l < r) {
@@ -22,7 +22,7 @@ public class TrappingRainWater {
         int[] h = new int[n];
         for (int i = 0; i < n; i++)
             h[i] = sc.nextInt();
-        System.out.println(trap(h));
+        System.out.println(solve(h));
         sc.close();
     }
 }
