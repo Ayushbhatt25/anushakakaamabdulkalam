@@ -1,7 +1,12 @@
 import java.util.Scanner;
+
 public class MergeSortedArrays {
-    static void solve(int[] a, int[] b) {
-        int n = a.length, m = b.length;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(), m = sc.nextInt();
+        int[] a = new int[n], b = new int[m];
+        for (int i = 0; i < n; i++) a[i] = sc.nextInt();
+        for (int i = 0; i < m; i++) b[i] = sc.nextInt();
         int gap = (n + m + 1) / 2;
         while (gap > 0) {
             int i = 0, j = gap;
@@ -17,14 +22,6 @@ public class MergeSortedArrays {
             if (gap == 1) break;
             gap = (gap + 1) / 2;
         }
-    }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(), m = sc.nextInt();
-        int[] a = new int[n], b = new int[m];
-        for (int i = 0; i < n; i++) a[i] = sc.nextInt();
-        for (int i = 0; i < m; i++) b[i] = sc.nextInt();
-        solve(a, b);
         for (int i = 0; i < n; i++) System.out.print(a[i] + " ");
         for (int i = 0; i < m; i++) System.out.print(b[i] + " ");
         System.out.println();

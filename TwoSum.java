@@ -1,16 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
+
 public class TwoSum {
-    static int[] solve(int[] nums, int target) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int rem = target - nums[i];
-            if (map.containsKey(rem))
-                return new int[]{map.get(rem), i};
-            map.put(nums[i], i);
-        }
-        return new int[]{-1, -1};
-    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -18,8 +9,17 @@ public class TwoSum {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
-        int[] res = solve(arr, target);
-        System.out.println(res[0] + " " + res[1]);
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            int diff = target - arr[i];
+            if (map.containsKey(diff)) {
+                System.out.println(map.get(diff) + " " + i);
+                sc.close();
+                return;
+            }
+            map.put(arr[i], i);
+        }
+        System.out.println("-1 -1");
         sc.close();
     }
 }

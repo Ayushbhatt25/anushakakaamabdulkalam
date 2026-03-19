@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class CountOccurrences {
     static int first(int[] arr, int target) {
         int lo = 0, hi = arr.length - 1, ans = -1;
@@ -20,11 +21,6 @@ public class CountOccurrences {
         }
         return ans;
     }
-    static int solve(int[] arr, int target) {
-        int f = first(arr, target);
-        if (f == -1) return 0;
-        return last(arr, target) - f + 1;
-    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -32,7 +28,9 @@ public class CountOccurrences {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++)
             arr[i] = sc.nextInt();
-        System.out.println(solve(arr, target));
+        int f = first(arr, target);
+        if (f == -1) System.out.println(0);
+        else System.out.println(last(arr, target) - f + 1);
         sc.close();
     }
 }
