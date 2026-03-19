@@ -1,37 +1,25 @@
 import java.util.Scanner;
 
 public class TrappingRainWater {
-    static int trap(int[] height) {
-        int left = 0, right = height.length - 1;
-        int leftMax = 0, rightMax = 0;
-        int water = 0;
-        while (left < right) {
-            if (height[left] < height[right]) {
-                if (height[left] >= leftMax) {
-                    leftMax = height[left];
-                } else {
-                    water += leftMax - height[left];
-                }
-                left++;
-            } else {
-                if (height[right] >= rightMax) {
-                    rightMax = height[right];
-                } else {
-                    water += rightMax - height[right];
-                }
-                right--;
-            }
-        }
-        return water;
-    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] height = new int[n];
-        for (int i = 0; i < n; i++) {
-            height[i] = sc.nextInt();
+        int[] h = new int[n];
+        for (int i = 0; i < n; i++)
+            h[i] = sc.nextInt();
+        int l = 0, r = n - 1, lMax = 0, rMax = 0, water = 0;
+        while (l < r) {
+            if (h[l] < h[r]) {
+                if (h[l] >= lMax) lMax = h[l];
+                else water += lMax - h[l];
+                l++;
+            } else {
+                if (h[r] >= rMax) rMax = h[r];
+                else water += rMax - h[r];
+                r--;
+            }
         }
-        System.out.println(trap(height));
+        System.out.println(water);
         sc.close();
     }
 }
